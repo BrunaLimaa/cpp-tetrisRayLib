@@ -3,6 +3,7 @@
 
 int main()
 {
+    //useless comment
 
     Color cyantemp = {0,255,255,255};
     
