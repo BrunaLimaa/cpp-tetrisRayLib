@@ -1,5 +1,6 @@
 #include "grid.h"
 #include <iostream>
+#include "colors.h"
 
 Grid::Grid(){
 
@@ -7,6 +8,7 @@ Grid::Grid(){
     numCols = 10;
     cellSize = 30;
     Initialize();
+    colors = getCellColors();
 }
 
 void Grid::Initialize(){
@@ -32,5 +34,20 @@ void Grid::Print(){
         }
         std::cout << std::endl;
     }
+
+}
+
+void Grid::Draw(){
+
+
+     for (int row = 0; row < numRows; row++)
+    {
+        for (int column = 0; column < numCols; column++)
+        {
+            int cellValue = grid[row][column];
+            DrawRectangle(column*cellSize+1, row*cellSize+1, cellSize-1, cellSize-1, colors[cellValue]);
+        }
+    }
+
 
 }
