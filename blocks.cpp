@@ -1,5 +1,5 @@
-#include "block.h"
-#include "position.h"
+#include "Classes\block.h"
+#include "Classes\position.h"
 
 class LBlock: public Block{
 public: 
@@ -24,7 +24,7 @@ public:
 
     }
 
-}
+};
 
 class IBlock: public Block{
 
@@ -38,7 +38,7 @@ public:
         cells[3] = {Position(0,1), Position(1,1), Position(2,1), Position(3,1)};
 
     }
-}
+};
 
 class OBlock: public Block{
 
@@ -53,7 +53,7 @@ public:
 
     }
 
-}
+};
 
 class SBlock: public Block{
 
@@ -68,7 +68,7 @@ public:
 
     }
 
-}
+};
 
 class TBlock: public Block{
 
@@ -83,7 +83,7 @@ public:
 
     }
 
-}
+};
 
 class ZBlock: public Block{
 
@@ -97,4 +97,4 @@ public:
         cells[3] = {Position(0,1), Position(1,0), Position(1,1), Position(2,0)};
 
     }
-}
+};

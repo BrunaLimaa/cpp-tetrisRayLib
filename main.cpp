@@ -1,5 +1,5 @@
 #include "raylib.h"
-#include "grid.h"
+#include "Classes\grid.h"
 #include "blocks.cpp"
 
 int main()
