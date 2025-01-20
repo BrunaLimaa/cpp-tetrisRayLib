@@ -14,7 +14,7 @@ int main()
     Grid grid = Grid();
     grid.Print();
 
-    TBlock block = TBlock();
+    SBlock block = SBlock();
     //block.Move(4, 3);
 
 
