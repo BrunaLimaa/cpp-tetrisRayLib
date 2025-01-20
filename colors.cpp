@@ -1,6 +1,6 @@
 #include "Classes\colors.h"
 
- const Color darkGrey = DARKGRAY;
+ const Color darkGrey = {26,31,40,255};
  const Color green = GREEN;
  const Color red = RED;
  const Color orange = ORANGE;

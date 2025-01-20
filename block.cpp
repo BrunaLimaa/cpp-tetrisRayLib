@@ -5,13 +5,15 @@ Block::Block(){
     cellSize = 30;
     rotationState = 0;
     colors = getCellColors();
+    row_offset = 0;
+    column_offset = 0;
 
 }
 
 
 void Block::Draw(){
 
-    std::vector<Position> tiles = cells[rotationState];
+    std::vector<Position> tiles = getCellPositions();
 
     for (Position item: tiles)
     {
@@ -20,3 +22,23 @@ void Block::Draw(){
     
 
 };
+
+void Block::Move(int rows, int columns){
+
+    row_offset += rows;
+    column_offset  += columns;
+
+
+}
+
+std::vector<Position> Block::getCellPositions(){
+
+    std::vector<Position> tiles = cells[rotationState];
+    std::vector<Position> movedTiles;
+    for (Position item: tiles)
+    {
+        Position newPos = Position(item.row + row_offset, item.column +  column_offset);
+        movedTiles.push_back(newPos);
+    }
+    return movedTiles;
+}

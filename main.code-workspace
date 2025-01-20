@@ -51,6 +51,7 @@
 			"streambuf": "cpp",
 			"cinttypes": "cpp",
 			"typeinfo": "cpp"
+			
 		},
 		"git.ignoreLimitWarning": true
 	}
