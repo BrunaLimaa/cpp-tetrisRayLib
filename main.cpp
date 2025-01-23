@@ -19,6 +19,7 @@ int main()
         ClearBackground(cyantemp);
 
         game.Draw();
+        game.handleInput();
 
         EndDrawing();
     }

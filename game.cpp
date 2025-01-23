@@ -1,5 +1,6 @@
 #include "Classes\game.h"
 #include <random>
+#include "Classes\game.h"
 
 Game::Game(){
     grid = Grid();
@@ -32,5 +33,35 @@ void Game::Draw(){
 
     grid.Draw();
     currentBlock.Draw();
+}
 
+
+void Game::handleInput()
+{
+    int keyPressed = GetKeyPressed();
+    switch (keyPressed)
+    {
+    case KEY_LEFT:
+    MoveBlockLeft();        
+        break;
+    case KEY_DOWN:
+    MoveBlockDown();
+        break;
+    case KEY_RIGHT:
+    MoveBlockRight();
+        break;
+    }
+
+}
+
+void  Game::MoveBlockLeft(){
+    currentBlock.Move(0,-1);
+}
+
+void Game::MoveBlockRight(){
+    currentBlock.Move(0,1);
+}
+
+void Game::MoveBlockDown(){
+    currentBlock.Move(1,0);
 }

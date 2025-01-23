@@ -15,5 +15,10 @@ public:
     Block getRandomBlock();
     std::vector<Block> getAllBlocks();
     void Draw();
-   
+
+    void handleInput();
+
+    void MoveBlockLeft();
+    void MoveBlockRight();
+    void MoveBlockDown();
 };
