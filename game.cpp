@@ -59,14 +59,28 @@ void Game::handleInput()
 
 void  Game::MoveBlockLeft(){
     currentBlock.Move(0,-1);
+    if (isBlockOutside())
+    {
+        currentBlock.Move(0,1);
+    }
+    
 }
 
 void Game::MoveBlockRight(){
     currentBlock.Move(0,1);
+    if (isBlockOutside())
+    {
+        currentBlock.Move(0,-1);
+    }
+
 }
 
 void Game::MoveBlockDown(){
     currentBlock.Move(1,0);
+    if (isBlockOutside())
+    {
+        currentBlock.Move(-1,0);
+    }
 }
 
 bool Game::isBlockOutside()
