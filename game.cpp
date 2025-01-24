@@ -1,8 +1,11 @@
 #include "Classes\game.h"
 #include <random>
 #include "Classes\game.h"
+#include "game.h"
 
 Game::Game(){
+
+  
     grid = Grid();
     blocks = getAllBlocks();
     currentBlock = getRandomBlock();
@@ -65,3 +68,13 @@ void Game::MoveBlockRight(){
 void Game::MoveBlockDown(){
     currentBlock.Move(1,0);
 }
+
+bool Game::isBlockOutside()
+    {
+       std::vector<Position> tiles = getCellPositions();
+       if (grid.isCellOutside(item.row, item.column))
+       {
+        return true;
+       }
+       return false;
+    }

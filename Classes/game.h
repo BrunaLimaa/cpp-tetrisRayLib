@@ -5,6 +5,7 @@
 class Game
 {
 private:
+    bool isBlockOutside();
     std::vector<Block>  blocks;
     Block currentBlock;
     Block nextBlock;
