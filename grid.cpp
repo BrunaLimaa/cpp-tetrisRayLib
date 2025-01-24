@@ -54,7 +54,7 @@ void Grid::Draw(){
 
 }
 
-bool Game::isCellOutside(){
+bool Grid::isCellOutside(int row, int column){
 
     if(row >= 0 && row < numRows && column >= 0 && column < numCols ){
         return false;

@@ -9,17 +9,15 @@ private:
     std::vector<Block>  blocks;
     Block currentBlock;
     Block nextBlock;
-
-public:
-    Game();
+    void MoveBlockLeft();
+    void MoveBlockRight();
     Grid grid;
     Block getRandomBlock();
     std::vector<Block> getAllBlocks();
+
+public:
+    Game();
     void Draw();
-
     void handleInput();
-
-    void MoveBlockLeft();
-    void MoveBlockRight();
     void MoveBlockDown();
 };

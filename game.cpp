@@ -1,7 +1,5 @@
 #include "Classes\game.h"
 #include <random>
-#include "Classes\game.h"
-#include "game.h"
 
 Game::Game(){
 
@@ -58,16 +56,16 @@ void Game::handleInput()
 }
 
 void  Game::MoveBlockLeft(){
-    currentBlock.Move(0,-1);
+    currentBlock.Move(0, -1);
     if (isBlockOutside())
     {
-        currentBlock.Move(0,1);
+        currentBlock.Move(0, 1);
     }
     
 }
 
 void Game::MoveBlockRight(){
-    currentBlock.Move(0,1);
+    currentBlock.Move(0, 1);
     if (isBlockOutside())
     {
         currentBlock.Move(0,-1);
@@ -85,10 +83,12 @@ void Game::MoveBlockDown(){
 
 bool Game::isBlockOutside()
     {
-       std::vector<Position> tiles = getCellPositions();
-       if (grid.isCellOutside(item.row, item.column))
-       {
-        return true;
+       std::vector<Position> tiles = currentBlock.getCellPositions();
+       for(Position item: tiles){
+             if (grid.isCellOutside(item.row, item.column))
+             {
+                  return true;
+             }
        }
-       return false;
-    }
+        return false;
+    };
