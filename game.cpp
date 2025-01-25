@@ -101,5 +101,10 @@ bool Game::isBlockOutside()
 void Game::rotateBlock()
 {
     currentBlock.rotate();
+    if (isBlockOutside())
+    {
+        currentBlock.undoRotation();
+    }
+    
 
 }
