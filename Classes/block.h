@@ -13,6 +13,7 @@ class Block
     std::map<int, std::vector<Position>> cells;
     void Move(int rows, int columns);
     std::vector<Position> getCellPositions();
+    void rotate();
 
 
  private:

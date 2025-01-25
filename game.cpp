@@ -41,7 +41,7 @@ void Game::handleInput()
 {
     int keyPressed = GetKeyPressed();
     switch (keyPressed)
-    {
+    { 
     case KEY_LEFT:
     MoveBlockLeft();        
         break;
@@ -51,6 +51,10 @@ void Game::handleInput()
     case KEY_RIGHT:
     MoveBlockRight();
         break;
+    case KEY_UP:
+        rotateBlock();
+        break;
+    
     }
 
 }
@@ -92,3 +96,10 @@ bool Game::isBlockOutside()
        }
         return false;
     };
+
+
+void Game::rotateBlock()
+{
+    currentBlock.rotate();
+
+}
