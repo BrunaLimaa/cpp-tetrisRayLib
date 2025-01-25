@@ -25,6 +25,16 @@ if (blocks.empty()){
     
 }
 
+void Game::LockBlock()
+{
+    std::vector<Position> tiles = currentBlock.getCellPositions();
+    for(Position item: tiles){
+        grid.grid[item.row][item.column] = currentBlock.color;
+    }
+
+    
+}
+
 std::vector<Block> Game::getAllBlocks(){
 
     return {LBlock(), JBlock(), IBlock(),OBlock(), ZBlock(), SBlock(), TBlock()};
@@ -82,6 +92,7 @@ void Game::MoveBlockDown(){
     if (isBlockOutside())
     {
         currentBlock.Move(-1,0);
+        lockBlock();
     }
 }
 

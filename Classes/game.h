@@ -23,4 +23,5 @@ public:
     void MoveBlockLeft();
     void MoveBlockRight();
     Block getRandomBlock();
+    void LockBlock();
 };
