@@ -36,6 +36,17 @@ void Game::LockBlock()
     
 }
 
+bool Game::BlockFits()
+{
+    std::vector<Position> tiles = currentBlock.getCellPositions();
+    for(Position item: tiles){
+        if(grid.isCellEmpty(item.row, item.column) == false){
+            return false;
+        } 
+    }
+    return true;
+}
+
 std::vector<Block> Game::getAllBlocks(){
 
     return {LBlock(), JBlock(), IBlock(),OBlock(), ZBlock(), SBlock(), TBlock()};
@@ -90,7 +101,7 @@ void Game::MoveBlockRight(){
 
 void Game::MoveBlockDown(){
     currentBlock.Move(1,0);
-    if (isBlockOutside())
+    if (isBlockOutside() || BlockFits() == false)
     {
         currentBlock.Move(-1,0);
         LockBlock();

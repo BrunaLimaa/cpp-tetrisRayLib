@@ -60,5 +60,12 @@ bool Grid::isCellOutside(int row, int column){
         return false;
     }
     return true;
+}
 
+bool Grid::isCellEmpty(int row, int column)
+{
+    if(grid[row][column] == 0){
+        return true;
+    }
+    return false;
 }
