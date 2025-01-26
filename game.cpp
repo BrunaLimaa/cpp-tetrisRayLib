@@ -29,9 +29,10 @@ void Game::LockBlock()
 {
     std::vector<Position> tiles = currentBlock.getCellPositions();
     for(Position item: tiles){
-        grid.grid[item.row][item.column] = currentBlock.color;
+        grid.grid[item.row][item.column] = currentBlock.id;
     }
-
+    currentBlock = nextBlock;
+    nextBlock = getRandomBlock();
     
 }
 
