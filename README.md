@@ -1,9 +1,6 @@
-# Raylib C++ Starter Template
+# Raylib C++ Tetris Game
 
-Raylib C++ Starter Template for Visual Studio Code on Windows.
-
-This demo project contains a bouncing ball raylib example program.
-
+Simple Tetris Game using Raylib and C++ 
 It works with raylib version 4.5.
 Tested on both Windows 10 and Windows 11.
 
