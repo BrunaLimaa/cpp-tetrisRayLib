@@ -25,4 +25,5 @@ public:
     Block getRandomBlock();
     void LockBlock();
     bool BlockFits();
+    bool gameOver;
 };
