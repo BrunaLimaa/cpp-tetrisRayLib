@@ -84,11 +84,11 @@ void Game::Draw(){
     switch (nextBlock.id)
     {
     case 3:
-        nextBlock.Draw(255, 290);
+        nextBlock.Draw(257, 290);
         break;
     
     case 4: 
-        nextBlock.Draw(255, 280);
+        nextBlock.Draw(258, 270);
         break;
     
     default:
@@ -110,21 +110,29 @@ void Game::handleInput()
     switch (keyPressed)
     { 
     case KEY_LEFT:
-    MoveBlockLeft();        
+        MoveBlockLeft();        
         break;
     case KEY_DOWN:
-    MoveBlockDown();
-    updateScore(0, 1);
+        MoveBlockDown();
+        updateScore(0, 1);
         break;
     case KEY_RIGHT:
-    MoveBlockRight();
+        MoveBlockRight();
         break;
     case KEY_UP:
         rotateBlock();
         break;
-    
+    case KEY_SPACE:
+       
+        while (!isBlockOutside() && BlockFits()) {
+            currentBlock.Move(1, 0);
+        }
+       
+        currentBlock.Move(-1, 0);
+        LockBlock();
+        updateScore(0, 2);
+        break;
     }
-
 }
 
 void  Game::MoveBlockLeft(){
