@@ -10,6 +10,10 @@ private:
     Block currentBlock;
     Block nextBlock;
     void rotateBlock();
+    void LockBlock();
+    bool BlockFits();
+    void Reset();
+    void updateScore(int linesCleared, int moveDownPoints);
   
     
 
@@ -22,8 +26,7 @@ public:
     Grid grid;
     void MoveBlockLeft();
     void MoveBlockRight();
-    Block getRandomBlock();
-    void LockBlock();
-    bool BlockFits();
+    Block getRandomBlock();   
     bool gameOver;
+    int score;
 };

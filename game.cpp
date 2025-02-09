@@ -1,6 +1,8 @@
 #include "Classes\game.h"
 #include <random>
 
+
+
 Game::Game(){
 
   
@@ -9,6 +11,7 @@ Game::Game(){
     currentBlock = getRandomBlock();
     nextBlock = getRandomBlock();
     gameOver = false;
+    score = 0;
 
 }
 
@@ -38,7 +41,8 @@ void Game::LockBlock()
         gameOver = true;
     }
     nextBlock = getRandomBlock();
-    grid.clearFullRows();
+    int rowsCleared = grid.clearFullRows();
+    updateScore(rowsCleared, 0);
     
 }
 
@@ -68,6 +72,12 @@ void Game::Draw(){
 void Game::handleInput()
 {
     int keyPressed = GetKeyPressed();
+
+    if (gameOver && keyPressed != 0)
+    {
+        gameOver = false;
+        Reset();
+    }
     switch (keyPressed)
     { 
     case KEY_LEFT:
@@ -75,6 +85,7 @@ void Game::handleInput()
         break;
     case KEY_DOWN:
     MoveBlockDown();
+    updateScore(0, 1);
         break;
     case KEY_RIGHT:
     MoveBlockRight();
@@ -146,6 +157,36 @@ void Game::rotateBlock()
         currentBlock.undoRotation();
     }
      }
+}
+void Game::Reset()
+{
+    grid.Initialize();
+    blocks = getAllBlocks();
+    currentBlock = getRandomBlock();
+    nextBlock = getRandomBlock();
+    score = 0;
+}
+
+void Game::updateScore(int linesCleared, int moveDownPoints)
+{
+    switch (linesCleared)
+    {
+    case 1:
+    score += 100;
+        break;
     
+    case 2:
+    score += 300;
+        break;
+
+    case 3: 
+    score += 500;
+        break;   
+        
+    default:
+        break;
+    }
+    
+    score += moveDownPoints;
 
 }
