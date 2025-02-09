@@ -19,14 +19,19 @@ private:
     void MoveBlockLeft();
     void MoveBlockRight();
     Block getRandomBlock(); 
+    Sound rotateSound;
+    Sound clearSound;
   
     
 
 public:
     Game();
+    ~Game();
     void Draw();
     void handleInput();
     void MoveBlockDown();  
     bool gameOver;
     int score;
+    Music music;
+   
 };

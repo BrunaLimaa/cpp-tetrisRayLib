@@ -18,7 +18,6 @@ bool EventTriggered(double interval){
 
 int main()
 {
-    //useless comment
 
     Color cyantemp = {60,38,188,255};
     
@@ -33,6 +32,13 @@ int main()
 
     while (WindowShouldClose() == false)
     {
+        UpdateMusicStream(game.music);
+
+        game.handleInput();
+        if (EventTriggered(0.3))
+        {
+             game.MoveBlockDown();
+        }
         BeginDrawing();
         ClearBackground(cyantemp);
         DrawTextEx(font, "SCORE", {355, 15}, 38, 2, WHITE);
@@ -51,11 +57,7 @@ int main()
         
         DrawRectangleRounded({320, 215, 170, 180}, 0.3, 6, blue);
         game.Draw();
-        game.handleInput();
-        if (EventTriggered(0.3))
-        {
-             game.MoveBlockDown();
-        }
+        
 
         EndDrawing();
     }

@@ -12,7 +12,19 @@ Game::Game(){
     nextBlock = getRandomBlock();
     gameOver = false;
     score = 0;
+    InitAudioDevice();
+    music = LoadMusicStream("Sounds/music.mp3");
+    PlayMusicStream(music);
+    SetMusicVolume(music, 0.06f); // Set the volume to 50%
+    rotateSound = LoadSound("Sounds/rotate.mp3");
+    clearSound = LoadSound("Sounds/clear.mp3");
+}
 
+Game::~Game(){
+    CloseAudioDevice(); 
+    UnloadMusicStream(music);
+    UnloadSound(rotateSound);
+    UnloadSound(clearSound);
 }
 
 Block Game::getRandomBlock(){
@@ -42,8 +54,11 @@ void Game::LockBlock()
     }
     nextBlock = getRandomBlock();
     int rowsCleared = grid.clearFullRows();
-    updateScore(rowsCleared, 0);
-    
+    if (rowsCleared > 0)
+    {
+        PlaySound(clearSound);
+        updateScore(rowsCleared, 0);
+    } 
 }
 
 bool Game::BlockFits()
@@ -169,6 +184,8 @@ void Game::rotateBlock()
     if (isBlockOutside() || BlockFits() == false)
     {
         currentBlock.undoRotation();
+    } else {
+        PlaySound(rotateSound);
     }
      }
 }
