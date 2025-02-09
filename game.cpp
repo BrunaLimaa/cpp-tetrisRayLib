@@ -65,7 +65,21 @@ std::vector<Block> Game::getAllBlocks(){
 void Game::Draw(){
 
     grid.Draw();
-    currentBlock.Draw();
+    currentBlock.Draw(11, 11);
+    switch (nextBlock.id)
+    {
+    case 3:
+        nextBlock.Draw(255, 290);
+        break;
+    
+    case 4: 
+        nextBlock.Draw(255, 280);
+        break;
+    
+    default:
+        nextBlock.Draw(270, 270);
+        break;
+    }
 }
 
 
